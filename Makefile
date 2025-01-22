@@ -16,10 +16,16 @@ eval:
 	cml comment create report.md
 
 update-branch:
-	git config --global user.name $(USER_NAME)
-	git config --global user.email $(USER_EMAIL)
-	git commit -am "Update with new results"
-	git push --force origin HEAD:update
+	@if [ -z "$(USER_NAME)" ] || [ -z "$(USER_EMAIL)" ]; then \
+		echo "Error: USER_NAME and USER_EMAIL must be provided"; \
+		exit 1; \
+	fi
+	git config --global user.name "$(USER_NAME)"
+	git config --global user.email "$(USER_EMAIL)"
+	git add .  # Add all changes, including untracked files
+	git commit -am "Update with new results" || echo "No changes to commit"
+	git pull --rebase
+	git push
 
 hf-login: 
 	pip install -U "huggingface_hub[cli]"
