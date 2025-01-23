@@ -30,11 +30,11 @@ update-branch:
 
 hf-login:
 	@echo "Authenticating with Hugging Face"
-	git fetch origin model-update
-	@if git diff --quiet HEAD origin/model-update; then \
+	git fetch origin update
+	@if git diff --quiet HEAD origin/update; then \
 		echo "No changes to pull, skipping git pull"; \
 	else \
-		git pull origin model-update; \
+		git pull origin update; \
 	fi
 	huggingface-cli login
 
