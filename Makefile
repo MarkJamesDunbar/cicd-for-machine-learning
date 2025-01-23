@@ -30,7 +30,6 @@ update-branch:
 
 hf-login: 
 	pip install -U "huggingface_hub[cli]"
-	git config pull.rebase false
 	git pull origin model-update
 	git switch model-update
 	huggingface-cli login --token $(HF) --add-to-git-credential
