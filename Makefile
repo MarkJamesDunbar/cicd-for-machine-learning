@@ -2,7 +2,6 @@ install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
 
-
 format:
 	black *.py
 
@@ -30,6 +29,8 @@ update-branch:
 
 hf-login: 
 	pip install -U "huggingface_hub[cli]"
+	git config --global user.name "$(USER_NAME)"
+	git config --global user.email "$(USER_EMAIL)"
 	git fetch origin update
 	git merge --no-ff origin/update --allow-unrelated-histories
 	git switch update
