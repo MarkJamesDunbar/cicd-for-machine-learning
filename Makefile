@@ -27,11 +27,11 @@ update-branch:
 	git commit -am "Update with new results" || echo "No changes to commit"
 	git pull --rebase
 	git push
-	
+
 hf-login: 
 	pip install -U "huggingface_hub[cli]"
 	git fetch origin update
-	git merge --no-ff origin/update
+	git merge --no-ff origin/update --allow-unrelated-histories
 	git switch update
 	huggingface-cli login --token $(HF) --add-to-git-credential
 
