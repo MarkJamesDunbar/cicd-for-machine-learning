@@ -27,12 +27,17 @@ update-branch:
 	git pull --rebase
 	git push
 
-hf-login: 
+hf-login:
+	@if [ -z "$(USER_NAME)" ] || [ -z "$(USER_EMAIL)" ]; then \
+		echo "Error: USER_NAME and USER_EMAIL must be provided"; \
+		exit 1; \
+	fi
 	pip install -U "huggingface_hub[cli]"
 	git config --global user.name "$(USER_NAME)"
 	git config --global user.email "$(USER_EMAIL)"
 	git fetch origin update
-	git merge --no-ff origin/update --allow-unrelated-histories
+	git merge --no-ff origin/update --allow-unrelated-histories || \
+		(echo "Merge failed. Please resolve conflicts manually." && exit 1)
 	git switch update
 	huggingface-cli login --token $(HF) --add-to-git-credential
 
