@@ -28,15 +28,11 @@ update-branch:
 	git pull --rebase
 	git push
 
-hf-login:
-	@echo "Authenticating with Hugging Face"
-	git fetch origin update
-	@if git diff --quiet HEAD origin/update; then \
-		echo "No changes to pull, skipping git pull"; \
-	else \
-		git pull origin update; \
-	fi
-	huggingface-cli login
+hf-login: 
+	pip install -U "huggingface_hub[cli]"
+	git pull origin test
+	git switch test
+	huggingface-cli login --token $(HF) --add-to-git-credential
 
 push-hub: 
 	huggingface-cli upload MarkJamesDunbar/Drug-Classification ./app --repo-type=space --commit-message="Sync App files"
