@@ -40,6 +40,7 @@ hf-login:
 		(echo "Merge failed. Please resolve conflicts manually." && exit 1)
 	git switch update
 	huggingface-cli login --token $(HF) --add-to-git-credential
+	
 
 push-hub: 
 	huggingface-cli upload MarkJamesDunbar/Drug-Classification ./app --repo-type=space --commit-message="Sync App files"
