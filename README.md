@@ -33,8 +33,8 @@ From training to evaluation, the entire process will be automated using GitHub a
     |   | +-----------------+       +-----------------+ |   |
     |   | |      Train      | ----> |      Model      | |   |
     |   | +-----------------+       +-----------------+ |   |
-    |   |                                   |           |   |
-    |   |                                   v           |   |
+    |   |                                    |          |   |
+    |   |                                    v          |   |
     |   |                           +-----------------+ |   |
     |   |                           |     Evaluate    | |   |
     |   |                           +-----------------+ |   |
@@ -48,8 +48,8 @@ From training to evaluation, the entire process will be automated using GitHub a
     |   | +-----------------+       +-----------------+ |   |
     |   | |    Pull Files   | ----> |   Upload Model  | |   |
     |   | +-----------------+       +-----------------+ |   |
-    |   |                                   |           |   |
-    |   |                                   v           |   |
+    |   |                                    |          |   |
+    |   |                                    v          |   |
     |   |                           +-----------------+ |   |
     |   |                           |    Deploy App   | |   |
     |   |                           +-----------------+ |   |
