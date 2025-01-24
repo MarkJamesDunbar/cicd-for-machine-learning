@@ -15,5 +15,7 @@ jobs:
 
       - name: Deployment To Hugging Face
         env:
+          USER_NAME: ${{ secrets.USER_NAME }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
           HF: ${{ secrets.HF }}
         run: make deploy HF=$HF
