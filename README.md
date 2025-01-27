@@ -1,6 +1,7 @@
 # Continuous Integration, Continuous Deployment for Machine Learning
 Demo for automating model training, evaluation, versioning, and deployment using GitHub Actions and Hugging Face Spaces.
 
+
 # Project Description
 In this project, we will be using scikit-learn pipelines to train our random forest algorithm and build a drug classifier. After training, we will automate the evaluation process using CML. Finally, we will build and deploy the web application to Hugging Face Hub.
 
